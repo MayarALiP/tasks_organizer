@@ -74,6 +74,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
                 child: SizedBox(
                   width: double.infinity,
+                  height: double.tryParse(errorMsg),
                   // Adjust the height of this container based on the error message
                   child: Text(
                     errorMsg,
@@ -199,6 +200,7 @@ class _LogInScreenState extends State<LogInScreen> {
 
                       if (isAuthenticated) {
                         // Successful login, navigate to the next screen
+                        print("Navigating to the next screen");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -206,7 +208,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                 MyTasksHome(usernameController.text),
                           ),
                         );
-                        print("Ok, to the next screen");
+
                       } else {
                         // Failed login, display an error message
                         setState(() {
