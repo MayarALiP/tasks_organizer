@@ -17,7 +17,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.teal[400],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(22),
         ),

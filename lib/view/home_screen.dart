@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_organizer/model/task.dart';
+import 'package:tasks_organizer/model/users.dart';
 import 'package:tasks_organizer/my_costume_widgets/tasks_list.dart';
 import 'package:tasks_organizer/view/add_new_task.dart';
 import 'package:tasks_organizer/view/dashboard_screen.dart';
@@ -77,11 +78,10 @@ class _MyTasksHomeState extends State<MyTasksHome> {
           ListTile(
             leading: IconButton(
               onPressed: () {
-                var userData;
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Profile(firstName: widget.firstName, userData: userData),
+                      builder: (context) => Profile( firstName:widget.firstName, ),
                     ));
               },
               icon: const Icon(Icons.person),

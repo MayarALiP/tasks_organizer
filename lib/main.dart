@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_organizer/splash_screen.dart';
 import 'package:tasks_organizer/view/home_screen.dart';
+import 'package:provider/provider.dart';
+
 
 void main() => runApp(const MyApp());
 
