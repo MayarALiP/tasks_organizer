@@ -2,15 +2,18 @@ class User {
   final String username;
   final String password;
   final String email;
+  final int age ;
+  final String meal ;
+  final String location ;
 
-  User(this.username, this.password, this.email);
+  User(this.username, this.password, this.email, this.age, this.meal, this.location);
 }
 
 // list of registered users
 final List<User> registeredUsers = [
-  User('MayarAli'  ,  '123456'  , 'Mayar@Ali.com'),
-  User('SarraaALi' ,  '654321'  , 'Sarraa@Ali.com'),
-  User('AhmedMeg'  ,  '10203040', 'Ahmed@Meg.com')
+  User('MayarAli'  ,  '123456'  , 'Mayar@Ali.com'  , 30 , 'Pizza' , "Canada"),
+  User('SarraaALi' ,  '654321'  , 'Sarraa@Ali.com' , 24 , 'Shawerma',"Japan"),
+  User('AhmedMeg'  ,  '10203040', 'Ahmed@Meg.com'  , 40  , 'fish', "USA")
 ];
 
 bool isRegistered(User user) {

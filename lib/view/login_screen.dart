@@ -1,4 +1,5 @@
-// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tasks_organizer/model/users.dart';
@@ -8,7 +9,7 @@ class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
 
   @override
-  _LogInScreenState createState() => _LogInScreenState();
+  State<LogInScreen> createState() => _LogInScreenState();
 }
 
 class _LogInScreenState extends State<LogInScreen> {
@@ -41,10 +42,26 @@ class _LogInScreenState extends State<LogInScreen> {
 
     // If we entered a new User
     User newUser = User(
-        usernameController.text, passwordController.text, emailController.text);
+        usernameController.text,
+        passwordController.text,
+        emailController.text,
+        18 ,
+        ' ',
+        ' ',
+    );
+    // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
       content: Text('User saved successfully.'),
     ));
+  }
+
+  String extractFirstName(String fullName) {
+    List<String> words = fullName.split(RegExp(r'(?=[A-Z])'));
+    if (words.isNotEmpty) {
+      return words[0];
+    } else {
+      return ''; // Return an empty string if there are no capital letters in the name.
+    }
   }
 
   @override
@@ -175,6 +192,8 @@ class _LogInScreenState extends State<LogInScreen> {
                           MaterialStateProperty.all(Colors.teal[400]),
                     ),
                     onPressed: () async {
+                      String firstName = extractFirstName(usernameController.text);
+
                       // Remember Me
                       if (rememberMe) {
                         _saveData();
@@ -198,14 +217,16 @@ class _LogInScreenState extends State<LogInScreen> {
                         emailController.text,
                       );
 
+
                       if (isAuthenticated) {
                         // Successful login, navigate to the next screen
-                        print("Navigating to the next screen");
+                        //print("Navigating to the next screen");
+                        // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                MyTasksHome(usernameController.text),
+                                MyTasksHome(firstName),
                           ),
                         );
 
@@ -235,6 +256,9 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 }
+
+
+
 
 
 

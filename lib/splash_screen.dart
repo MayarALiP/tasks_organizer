@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:tasks_organizer/model/task.dart';
 import 'package:tasks_organizer/view/login_screen.dart';
 
 
@@ -11,6 +12,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  List<Task> tasks =[
+    Task(name:"design you dashboard"),
+    Task(name:"design you profile "),
+    Task(name:"delete a task "),
+  ];
+
   @override
   void initState() {
     super.initState();

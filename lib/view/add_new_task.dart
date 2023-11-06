@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddNewTask extends StatelessWidget {
-  const AddNewTask({super.key});
+  final Function addTaskCallback ;
+   const AddNewTask(this.addTaskCallback, {super.key});
 
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = "" ;
+
     return Container(
       // just to match the background color :)
       color: const Color(0xff757575),
@@ -27,14 +30,20 @@ class AddNewTask extends StatelessWidget {
                   fontSize: 32,
                   fontWeight: FontWeight.bold),
             ),
-            const TextField(
+             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (inputText)
+              {
+               newTaskTitle=inputText ;
+              },
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 20, 0, 5),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  addTaskCallback(newTaskTitle);
+                },
                 style: ButtonStyle(
                     backgroundColor:
                     MaterialStatePropertyAll(Colors.teal[400])),
