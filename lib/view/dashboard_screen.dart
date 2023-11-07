@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasks_organizer/model/task.dart';
 import 'package:tasks_organizer/my_costume_widgets/dashboard_cards.dart';
-import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
   final List<Task> tasks;

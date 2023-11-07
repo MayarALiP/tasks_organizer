@@ -1,16 +1,47 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:tasks_organizer/model/task.dart';
 
 class TaskData extends ChangeNotifier {
 
-  List<Task> tasks = [
+  // I made it a privet data to force myself not to access tasks.add or tasks.remove
+  // without the provider Listener !!
+  final List<Task> _tasks = [
     Task(name: "design Dashboard Screen"),
     Task(name: "design Profile Screen"),
-    Task(name: "made a Delete "),
+    Task(name: "made a Delete button works "),
   ];
 
-  int get tasksCount {
-    return tasks.length ;
+  UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
 
+  int get tasksCount {
+    return _tasks.length ;
   }
+
+  void addNewTask( String newTaskTitle) {
+    final task =Task(name: newTaskTitle);
+    _tasks.add(task);
+    notifyListeners();
+  }
+
+  void taskStatus (Task task){
+    task.toggleDone();
+    notifyListeners();
+
 }
+
+  void taskDeleting (Task task) {
+    _tasks.remove(task);
+    notifyListeners();
+  }
+
+  void taskEditing(Task task, String newTitle) {
+     final index = _tasks.indexOf(task);
+    // if (index != -1) {
+      _tasks[index].name = newTitle;
+      notifyListeners();
+    }
+
+}
+
+

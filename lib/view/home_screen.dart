@@ -17,12 +17,7 @@ class MyTasksHome extends StatefulWidget {
 class _MyTasksHomeState extends State<MyTasksHome> {
 
 
-  Widget buildBottomSheet(BuildContext context) => AddNewTask((newTaskTitle) {
-        // setState(() {
-        //   tasks.add(Task(name: newTaskTitle));
-        // });
-        Navigator.pop(context);
-      });
+  Widget buildBottomSheet(BuildContext context) => const AddNewTask();
 
   @override
   Widget build(BuildContext context) {

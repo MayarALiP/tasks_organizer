@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_organizer/model/users.dart';
 
 class Profile extends StatelessWidget {
   final String firstName;

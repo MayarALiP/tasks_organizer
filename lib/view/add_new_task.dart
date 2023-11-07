@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tasks_organizer/model/task.dart';
+import 'package:tasks_organizer/model/task_data.dart';
 
 class AddNewTask extends StatelessWidget {
-  final Function addTaskCallback ;
-   const AddNewTask(this.addTaskCallback, {super.key});
+  const AddNewTask({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    String newTaskTitle = "" ;
+    late String newTaskTitle ;
 
     return Container(
       // just to match the background color :)
@@ -41,16 +44,19 @@ class AddNewTask extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 20, 0, 5),
               child: ElevatedButton(
-                onPressed: () {
-                  addTaskCallback(newTaskTitle);
-                },
                 style: ButtonStyle(
                     backgroundColor:
                     MaterialStatePropertyAll(Colors.teal[400])),
-                child: const Text(
+
+                child:  const Text(
                   "Add",
                   style: TextStyle(fontSize: 20),
                 ),
+                onPressed: () {
+                  Provider.of<TaskData>(context, listen: false).addNewTask(newTaskTitle);
+                  Navigator.pop(context);
+                },
+
               ),
             ),
           ]),
