@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_organizer/model/task.dart';
-import 'package:tasks_organizer/model/users.dart';
+import 'package:provider/provider.dart';
+import 'package:tasks_organizer/model/task_data.dart';
 import 'package:tasks_organizer/my_costume_widgets/tasks_list.dart';
 import 'package:tasks_organizer/view/add_new_task.dart';
 import 'package:tasks_organizer/view/dashboard_screen.dart';
@@ -15,16 +15,12 @@ class MyTasksHome extends StatefulWidget {
 }
 
 class _MyTasksHomeState extends State<MyTasksHome> {
-  List<Task> tasks = [
-    Task(name: "design Dashboard Screen"),
-    Task(name: "design Profile Screen"),
-    Task(name: "made a Delete "),
-  ];
+
 
   Widget buildBottomSheet(BuildContext context) => AddNewTask((newTaskTitle) {
-        setState(() {
-          tasks.add(Task(name: newTaskTitle));
-        });
+        // setState(() {
+        //   tasks.add(Task(name: newTaskTitle));
+        // });
         Navigator.pop(context);
       });
 
@@ -68,7 +64,7 @@ class _MyTasksHomeState extends State<MyTasksHome> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DashboardScreen(tasks, firstName: widget.firstName,),
+                      builder: (context) => DashboardScreen(Provider.of<TaskData>(context).tasks, firstName: widget.firstName,),
                     ));
               },
               icon: const Icon(Icons.dashboard_outlined),
@@ -92,9 +88,9 @@ class _MyTasksHomeState extends State<MyTasksHome> {
       ),
 
       // body where my tasks will appear
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 16, 8, 0),
-        child: TasksList(tasks),
+      body:  const Padding(
+        padding: EdgeInsets.fromLTRB(8.0, 16, 8, 0),
+        child: TasksList(),
       ),
 
       // adding new task
