@@ -180,7 +180,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ),
 
-//ToDO _while testing _:go to model/user and pic from "registeredUsers" one copy & paste
+//TODO:_while testing_ go to model/user and pic from "registeredUsers" one copy & paste
               // Button
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 5),

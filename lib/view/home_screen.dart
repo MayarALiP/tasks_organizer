@@ -53,6 +53,7 @@ class _MyTasksHomeState extends State<MyTasksHome> {
               ),
             ),
           ),
+          //TODO:_while testing_ click on the Icon itself
           ListTile(
             leading: IconButton(
               onPressed: () {
@@ -62,7 +63,10 @@ class _MyTasksHomeState extends State<MyTasksHome> {
                       builder: (context) => DashboardScreen(Provider.of<TaskData>(context).tasks, firstName: widget.firstName,),
                     ));
               },
-              icon: const Icon(Icons.dashboard_outlined),
+              icon:  Icon(Icons.dashboard_outlined ,
+              color: Colors.teal[400],
+              size: 30,
+              ),
             ),
             title: const Text('Dashboard '),
           ),
@@ -75,9 +79,12 @@ class _MyTasksHomeState extends State<MyTasksHome> {
                       builder: (context) => Profile( firstName:widget.firstName, ),
                     ));
               },
-              icon: const Icon(Icons.person),
+              icon:  Icon(Icons.person,
+                color: Colors.teal[400],
+                size: 30,),
             ),
-            title: const Text('Personal Info '),
+            title: const Text('Personal Info' ,
+            ),
           ),
         ]),
       ),

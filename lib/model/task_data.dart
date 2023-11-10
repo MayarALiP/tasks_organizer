@@ -6,7 +6,7 @@ class TaskData extends ChangeNotifier {
 
   // I made it a privet data to force myself not to access tasks.add or tasks.remove
   // without the provider Listener !!
-  final List<Task> _tasks = [
+   final List<Task> _tasks = [
     Task(name: "design Dashboard Screen"),
     Task(name: "design Profile Screen"),
     Task(name: "made a Delete button works "),
@@ -35,10 +35,10 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-  void taskEditing(Task task, String newTitle) {
-     final index = _tasks.indexOf(task);
-    // if (index != -1) {
+  void taskEditing(int index, String newTitle) {
       _tasks[index].name = newTitle;
+      // just for debugging
+      print("i am here");
       notifyListeners();
     }
 

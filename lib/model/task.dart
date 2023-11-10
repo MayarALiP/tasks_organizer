@@ -1,6 +1,6 @@
 class Task{
-  late final String name;
-  late bool isDone ;
+   String name;
+   bool isDone ;
 
   Task({required this.name , this.isDone=false});
 

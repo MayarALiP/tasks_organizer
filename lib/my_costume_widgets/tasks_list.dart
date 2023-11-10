@@ -8,6 +8,8 @@ class TasksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
+
     return Consumer<TaskData>(
       builder: (context, taskData, child) {
         return ListView.builder(
@@ -44,11 +46,10 @@ class TasksList extends StatelessWidget {
             void editTask() {
               // Initialize newTitle with the current task title
               String newTitle = currentTask.name;
-
+               controller.text = newTitle ;
               showDialog(
                 context: context,
                 builder: (context) {
-                  TextEditingController controller = TextEditingController(text: newTitle);
                   return AlertDialog(
                     title: const Text(
                       'Edit Task Title',
@@ -57,17 +58,17 @@ class TasksList extends StatelessWidget {
                     content: TextField(
                       controller: controller,
                       autofocus: true,
-                      onChanged: (value) {
-                        newTitle = value;
-                        //check if the  Update newTitle when the user changes the text
-                        print(newTitle);
-                      },
+                      // onChanged: (value) {
+                      //   newTitle = value;
+                      //   //check if the  Update newTitle when the user changes the text
+                      //   print(newTitle);
+                      // },
                     ),
                     actions: <Widget>[
                       TextButton(
                         child: const Text('Save'),
                         onPressed: () {
-                            taskData.taskEditing(currentTask, newTitle);
+                            taskData.taskEditing(index, controller.text);
                             // Close the dialog
                             Navigator.of(context).pop();
                         }, // onPressed

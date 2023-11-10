@@ -26,7 +26,7 @@ class Profile extends StatelessWidget {
       ),
       body: Column(children: [
         Container(
-          color: Colors.teal[600],
+          color: Colors.teal[100],
           child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -45,7 +45,7 @@ class Profile extends StatelessWidget {
           ]),
         ),
         Container(
-          color: Colors.blue[700],
+          color: Colors.blue[100],
           child: Row(
             children: [
               const SizedBox(
@@ -66,7 +66,7 @@ class Profile extends StatelessWidget {
           ),
         ),
         Container(
-          color: Colors.teal[600],
+          color: Colors.teal[100],
           child: Row(
             children: [
               const SizedBox(
@@ -87,7 +87,7 @@ class Profile extends StatelessWidget {
           ),
         ),
         Container(
-          color: Colors.blue[700],
+          color: Colors.blue[100],
           child: Row(
             children: [
               const SizedBox(
